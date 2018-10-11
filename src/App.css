@@ -30,6 +30,7 @@
 }
 .circle-add {
   font-size: 30px; 
-  color:#007bff;
+  /* color:#007bff; */
+  color: red;
   float: right; 
 }
