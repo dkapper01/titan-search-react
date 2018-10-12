@@ -58,7 +58,10 @@ class AddBtnField extends React.Component {
           data-target="#exampleModal"
           data-whatever="@getbootstrap"
         >
-          <i className="fa fa-plus-circle circle-add visible" aria-hidden="true" />
+          <i
+            className="fa fa-plus-circle circle-add visible"
+            aria-hidden="true"
+          />
         </button>
 
         <div
@@ -88,41 +91,26 @@ class AddBtnField extends React.Component {
               <div className="modal-body">
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <label htmlFor="recipient-name" className="col-form-label">
-                      Name:
-                    </label>
                     <input
                       name="button"
                       type="text"
                       className="form-control"
                       id="recipient-name"
                     />
-                    <div className="modal-footer">
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        Cancel
-                      </button>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
 
-                      <button className="btn btn-warning">Add Button</button>
-                    </div>
+                    <button className="btn btn-primary">Add Button</button>
                   </div>
                 </form>
               </div>
-              {/* <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Cancel
-                </button>
-                <button type="button" name="button" className="btn btn-primary">
-                  Add
-                </button>
-              </div> */}
             </div>
           </div>
         </div>

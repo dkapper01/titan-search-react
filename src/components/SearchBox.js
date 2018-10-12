@@ -10,28 +10,20 @@ class SearchBox extends React.Component {
       searchs: ""
     };
     this.handleGoogle = this.handleGoogle.bind(this);
-    this.handleCustomSearch = this.handleCustomSearch.bind(this); 
     this.updateSearch = this.updateSearch.bind(this); 
   }
 
   updateSearch(event) {
     this.setState({ searchs: event.target.value });
-    // console.log(event.target.value);
   }
 
   handleGoogle() {
-    // console.log(this.state.searchs);
     window.open(
       "http://www.google.com/search?q=" + this.state.searchs,
       "_blank"
     );
   }
-  handleCustomSearch(e) {
-    e.preventDefault();
-    const test = this.state.searchs; 
 
-    console.log(test); 
-  }
   render() {
     return (
       <div className="form_box">
@@ -60,7 +52,6 @@ class SearchBox extends React.Component {
                 value={this.state.searchs}
                 name="q"
                 className="btn btn-outline-light"
-                // type="button"
               >
                 Custom
               </button>
