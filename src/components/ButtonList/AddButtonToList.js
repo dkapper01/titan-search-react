@@ -58,7 +58,7 @@ class AddBtnField extends React.Component {
           data-target="#exampleModal"
           data-whatever="@getbootstrap"
         >
-          <i class="fa fa-plus-circle circle-add visible" aria-hidden="true" />
+          <i className="fa fa-plus-circle circle-add visible" aria-hidden="true" />
         </button>
 
         <div
