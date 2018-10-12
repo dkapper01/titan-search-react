@@ -107,7 +107,7 @@ class AddBtnField extends React.Component {
                       Cancel
                     </button>
 
-                    <button className="btn btn-primary">Add Button</button>
+                    <button className="btn btn-primary">Save</button>
                   </div>
                 </form>
               </div>
