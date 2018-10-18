@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import AddButtonToList from "./ButtonList/AddButtonToList";
 import "../App.css";
 
 class SearchBox extends React.Component {
@@ -7,21 +7,30 @@ class SearchBox extends React.Component {
     super(props);
 
     this.state = {
-      searchs: ""
+      value: ""
     };
-    this.handleGoogle = this.handleGoogle.bind(this);
-    this.updateSearch = this.updateSearch.bind(this); 
-  }
 
-  updateSearch(event) {
-    this.setState({ searchs: event.target.value });
+    this.handleGoogle = this.handleGoogle.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this); 
   }
 
   handleGoogle() {
     window.open(
-      "http://www.google.com/search?q=" + this.state.searchs,
+      "http://www.google.com/search?q=" + this.state.value,
       "_blank"
     );
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+    console.log(this.state.value);     
+  }
+
+  handleSubmit(e) {
+    console.log(this.state.value)
+    // e.preventDefault(); 
+    localStorage.setItem(this.state.value, "test"); 
   }
 
   render() {
@@ -34,6 +43,7 @@ class SearchBox extends React.Component {
           id="cse-search-box"
           name="cse-search-box"
           target=""
+          handleSubmit={this.handleSubmit}
         >
           <div className="input-group">
             <input
@@ -41,17 +51,16 @@ class SearchBox extends React.Component {
               className="form-control input-lg"
               placeholder="Search..."
               id="googleInput"
-              value={this.state.searchs}
-              onChange={this.updateSearch}
+              value={this.state.value}
+              onChange={this.handleChange}
               name="q"
             />
             <div className="input-group-append">
               <button
-                onClick={this.updateSearch}
                 id="gcs"
-                value={this.state.searchs}
                 name="q"
                 className="btn btn-outline-light"
+                type="button"
               >
                 Custom
               </button>

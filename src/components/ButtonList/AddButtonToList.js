@@ -48,6 +48,7 @@ class AddBtnField extends React.Component {
 
     this.props.handleAddButton(button);
   }
+
   render() {
     return (
       <div>
@@ -123,7 +124,7 @@ const ListOfButtons = props => {
   return (
     <div className="buttonSpace btn-toolbar">
       {props.buttonsText.map(button => (
-        <Button key={button} buttonsText={button} />
+        <Button key={button} buttonsText={button}  />
       ))}
     </div>
   );
