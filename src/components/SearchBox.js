@@ -12,25 +12,26 @@ class SearchBox extends React.Component {
 
     this.handleGoogle = this.handleGoogle.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this); 
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleGoogle() {
-    window.open(
-      "http://www.google.com/search?q=" + this.state.value,
-      "_blank"
-    );
+    window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
   }
 
   handleChange(e) {
     this.setState({ value: e.target.value });
-    console.log(this.state.value);     
+    console.log(this.state.value);
+  }
+  componentDidMount() {
+    // localStorage.setItem("test", this.state.value);
   }
 
   handleSubmit(e) {
-    console.log(this.state.value)
-    // e.preventDefault(); 
-    localStorage.setItem(this.state.value, "test"); 
+    // alert("this.state.value");
+    // console.log(this.state.value);
+    // e.preventDefault();
+    // localStorage.setItem("key", this.state.value);
   }
 
   render() {
@@ -43,7 +44,7 @@ class SearchBox extends React.Component {
           id="cse-search-box"
           name="cse-search-box"
           target=""
-          handleSubmit={this.handleSubmit}
+          // onSubmit={this.handleSubmit}
         >
           <div className="input-group">
             <input
@@ -52,7 +53,7 @@ class SearchBox extends React.Component {
               placeholder="Search..."
               id="googleInput"
               value={this.state.value}
-              onChange={this.handleChange}
+              onChange={this.handleChange} 
               name="q"
             />
             <div className="input-group-append">
