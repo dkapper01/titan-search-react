@@ -7,6 +7,7 @@ export default class SearchBox extends Component {
         <form>
           <input type="text" />
           <button>Search</button>
+          <button>Google</button>
         </form>
       </div>
     )
