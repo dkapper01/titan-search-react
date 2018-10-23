@@ -10,13 +10,10 @@ class App extends Component {
       <div className="container">
         <h1>Hello</h1>
         <hr/>
-        <p>SearchBox</p>
+        {/* <p>SearchBox</p> */}
         <SearchBox />
         <hr/>
-        <p>ActionButtons</p>
-        <ActionButtons />
-        <hr/>
-        <p>QuickAddContainer</p>
+        {/* <p>QuickAddContainer</p> */}
         <ButtonContainer />
         <hr/>
       </div>
