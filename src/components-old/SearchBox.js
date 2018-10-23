@@ -18,7 +18,7 @@ class SearchBox extends React.Component {
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
   }
-
+  
   handleChange(e) {
     this.setState({ value: e.target.value });
     console.log(this.state.value);
