@@ -12,7 +12,7 @@ class App extends Component {
         <hr/>
         <SearchBox />
         <hr/>
-        <ButtonContainer />
+        {/* <ButtonContainer /> */}
         <hr/>
       </div>
     );

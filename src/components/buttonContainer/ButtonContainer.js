@@ -1,75 +1,75 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
-export default class ButtonContainer extends Component {
-  constructor(props) {
-    super(props);
+// export default class ButtonContainer extends Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = {
-      buttons: ["AND", "OR", ".com"]
-    };
-    this.handleAddButton = this.handleAddButton.bind(this);
-  }
+//     this.state = {
+//       buttons: ["AND", "OR", ".com"]
+//     };
+//     this.handleAddButton = this.handleAddButton.bind(this);
+    
+//   }
 
-  handleAddButton(button) {
-    console.log("Cat");
-    this.setState(prevState => ({
-      buttons: prevState.buttons.concat(button)
-    }));
-  }
+//   handleAddButton(button) {
+//     console.log("concat");
+//     this.setState(prevState => ({
+//       buttons: prevState.buttons.concat(button)
+//     }));
+//   }
 
-  render() {
-    return (
-      <div>
-        <AddButton handleAddButton={this.handleAddButton} />
+//   render() {
+//     return (
+//       <div>
+//         <AddButton handleAddButton={this.handleAddButton} />
 
-        <Buttons buttons={this.state.buttons} />
-      </div>
-    );
-  }
-}
-class AddButton extends Component {
-  constructor(props) {
-    super(props);
+//         <Buttons buttons={this.state.buttons} />
+//       </div>
+//     );
+//   }
+// }
+// class AddButton extends Component {
+//   constructor(props) {
+//     super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+//   handleSubmit(e) {
+//     e.preventDefault();
 
-    const button = e.target.elements.button.value.trim();
+//     const button = e.target.elements.button.value.trim();
+//     this.props.handleAddButton(button);
+//   }
 
-    this.props.handleAddButton(button);
-  }
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.handleSubmit}>
+//           <input type="text" name="button" />
+//           <button>Add Button</button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="button" />
-          <button>Add Button</button>
-        </form>
-      </div>
-    );
-  }
-}
+// class Buttons extends Component {
+//   render() {
+//     return (
+//       <div>
+//         {this.props.buttons.map(button => (
+//           <Button key={button} buttonText={button} />
+//         ))}
+//       </div>
+//     );
+//   }
+// }
 
-class Buttons extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.buttons.map(button => (
-          <Button key={button} buttonText={button} />
-        ))}
-      </div>
-    );
-  }
-}
-
-const Button = props => {
-  return (
-    <div>
-      <button>{props.buttonText}</button>
-    </div>
-  );
-};
+// const Button = props => {
+//   return (
+//     <div>
+//       <button>{props.buttonText}</button>
+//     </div>
+//   );
+// };
