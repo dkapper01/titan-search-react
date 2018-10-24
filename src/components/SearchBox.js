@@ -34,12 +34,9 @@ class SearchBox extends Component {
     const i = newValue.join(" "); 
     this.setState({ value: i });
   }
+  handleAddValue() {
 
-  // GoBack(string) {
-  //   strArray = string.split(" ");
-  //   const newArray = strArray.slice(0, -1)
-  //   console.log(newArray);
-  // }
+  }
 
   render() {
     return (
