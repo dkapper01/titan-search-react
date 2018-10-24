@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ActionButton from "./actionButtons/ActionButtons";
+import DropdownMenu from "./dropdown/DropdownMenu";
 
 class SearchBox extends Component {
   constructor(props) {
@@ -7,7 +8,8 @@ class SearchBox extends Component {
 
     this.state = {
       value: "",
-      buttons: ["AND", "OR", ".com"]
+      buttons: ["AND", "OR", ".com"],
+      search: "qctzzxd3rpa"
     };
 
     this.handleAddButton = this.handleAddButton.bind(this);
@@ -16,6 +18,14 @@ class SearchBox extends Component {
     this.handleDeleteAll = this.handleDeleteAll.bind(this);
     this.handleGoBack = this.handleGoBack.bind(this);
     this.handleSetButton = this.handleSetButton.bind(this);
+    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
+    this.handleOnChangeSearch = this.handleOnChangeSearch.bind(this);
+  }
+  handleOnChangeSearch(e) {
+    this.setState({ search: e.target.value });
+  }
+  handleSubmitSearch(e) {
+    e.preventDefault();
   }
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
@@ -25,8 +35,9 @@ class SearchBox extends Component {
     this.setState({ value: e.target.value });
   }
   componentDidMount() {
+    const test = this.state.search; 
     (function() {
-      var cx = "007806920644787485811:qctzzxd3rpa";
+      var cx = "007806920644787485811:" + test;
       var gcse = document.createElement("script");
       gcse.type = "text/javascript";
       gcse.async = true;
@@ -40,7 +51,7 @@ class SearchBox extends Component {
     console.log("delete All");
   }
   handleOnSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
   }
   handleGoBack() {
     const n = this.state.value.split(" ");
@@ -59,10 +70,20 @@ class SearchBox extends Component {
   handleSetButton(i) {
     this.setState({ value: this.state.value + i });
   }
-  // class="form-control form-style" action="" method="get" id="cse-search-box" name="cse-search-box" target=""
   render() {
     return (
       <div>
+        <form onSubmit={this.handleSubmitSearch}>
+          <select
+            value={this.state.search}
+            onChange={this.handleOnChangeSearch}
+          >
+            <option value="qgwcit01afm">TitanSearch</option>
+            <option value="qctzzxd3rpa">Social Media</option>
+            <option value="xu4tdxf8sfc">Salary</option>
+          </select>
+          <input type="submit" value="Submit" />
+        </form>
         <form action="" method="get" onSubmit={this.handleOnSubmit}>
           <input
             type="search"
