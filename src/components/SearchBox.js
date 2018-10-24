@@ -15,7 +15,7 @@ class SearchBox extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleDeleteAll = this.handleDeleteAll.bind(this);
     this.handleGoBack = this.handleGoBack.bind(this);
-    this.handleSetButton = this.handleSetButton.bind(this); 
+    this.handleSetButton = this.handleSetButton.bind(this);
   }
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
@@ -25,7 +25,15 @@ class SearchBox extends Component {
     this.setState({ value: e.target.value });
   }
   componentDidMount() {
-    console.log("did mount");
+    (function() {
+      var cx = "007806920644787485811:qctzzxd3rpa";
+      var gcse = document.createElement("script");
+      gcse.type = "text/javascript";
+      gcse.async = true;
+      gcse.src = "https://cse.google.com/cse.js?cx=" + cx;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
   }
   handleDeleteAll() {
     this.setState({ value: "" });
@@ -49,19 +57,21 @@ class SearchBox extends Component {
     }));
   }
   handleSetButton(i) {
-    console.log(i);
+    this.setState({ value: this.state.value + i });
   }
-
+  // class="form-control form-style" action="" method="get" id="cse-search-box" name="cse-search-box" target=""
   render() {
     return (
       <div>
-        <form onSubmit={this.handleOnSubmit}>
+        <form action="" method="get" onSubmit={this.handleOnSubmit}>
           <input
-            type="text"
+            type="search"
+            name="q"
+            placeholder="Search Custom Search Engine or Google"
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <button onClick={this.handleDeleteAll}>Search</button>
+          <button type="submit">Search</button>
           <button onClick={this.handleGoogle}>Google</button>
           <ActionButton
             handleDeleteAll={this.handleDeleteAll}
@@ -72,7 +82,10 @@ class SearchBox extends Component {
             handleAddTextToField={this.handleAddTextToField}
           />
 
-          <Buttons buttons={this.state.buttons} handleSetButton={this.handleSetButton}/>
+          <Buttons
+            buttons={this.state.buttons}
+            handleSetButton={this.handleSetButton}
+          />
         </form>
       </div>
     );
@@ -112,15 +125,18 @@ class Buttons extends Component {
     this.handleAddTextToField = this.handleAddTextToField.bind(this);
   }
   handleAddTextToField(button) {
-    console.log(button)
-    this.props.handleSetButton(button); 
-    
+    console.log(button);
+    this.props.handleSetButton(button);
   }
   render() {
     return (
       <div>
         {this.props.buttons.map(button => (
-          <Button key={button} buttonText={button} handleAddTextToField={this.handleAddTextToField}/>
+          <Button
+            key={button}
+            buttonText={button}
+            handleAddTextToField={this.handleAddTextToField}
+          />
         ))}
       </div>
     );
