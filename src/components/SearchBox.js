@@ -1,6 +1,22 @@
 import React, { Component } from "react";
 import ActionButton from "./actionButtons/ActionButtons";
-import DropdownMenu from "./dropdown/DropdownMenu";
+
+const divStyle = {
+  width: "100%",
+  // height: '100px',
+  // border: '1px solid red',
+  display: "inline-block"
+};
+const brandStyle = {
+  border: "1px solid red",
+  display: "inline-block"
+};
+const navStyle = {
+  width: "100%"
+};
+const formStyle = {
+  display: "inline-block"
+};
 
 class SearchBox extends Component {
   constructor(props) {
@@ -8,25 +24,15 @@ class SearchBox extends Component {
 
     this.state = {
       value: "",
-      buttons: ["AND", "OR", ".com"],
       search: "qctzzxd3rpa"
     };
 
-    this.handleAddButton = this.handleAddButton.bind(this);
     this.handleGoogle = this.handleGoogle.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleDeleteAll = this.handleDeleteAll.bind(this);
     this.handleGoBack = this.handleGoBack.bind(this);
-    this.handleSetButton = this.handleSetButton.bind(this);
-    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
-    this.handleOnChangeSearch = this.handleOnChangeSearch.bind(this);
   }
-  handleOnChangeSearch(e) {
-    this.setState({ search: e.target.value });
-  }
-  handleSubmitSearch(e) {
-    e.preventDefault();
-  }
+
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
     console.log("googling");
@@ -35,9 +41,8 @@ class SearchBox extends Component {
     this.setState({ value: e.target.value });
   }
   componentDidMount() {
-    const test = this.state.search; 
     (function() {
-      var cx = "007806920644787485811:" + test;
+      var cx = "007806920644787485811:qgwcit01afm";
       var gcse = document.createElement("script");
       gcse.type = "text/javascript";
       gcse.async = true;
@@ -60,122 +65,54 @@ class SearchBox extends Component {
     this.setState({ value: i });
     console.log("go back");
   }
-
-  handleAddButton(button) {
-    console.log("concat");
-    this.setState(prevState => ({
-      buttons: prevState.buttons.concat(button)
-    }));
-  }
-  handleSetButton(i) {
-    this.setState({ value: this.state.value + i });
+  handleOnSubmitActionButtons(e) {
+    // e.preventDefault()
   }
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmitSearch}>
-          <select
-            value={this.state.search}
-            onChange={this.handleOnChangeSearch}
+      <div style={divStyle}>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <form
+            style={navStyle}
+            className=""
+            action=""
+            method="get"
+            onSubmit={this.handleOnSubmit}
           >
-            <option value="qgwcit01afm">TitanSearch</option>
-            <option value="qctzzxd3rpa">Social Media</option>
-            <option value="xu4tdxf8sfc">Salary</option>
-          </select>
-          <input type="submit" value="Submit" />
-        </form>
-        <form action="" method="get" onSubmit={this.handleOnSubmit}>
-          <input
-            type="search"
-            name="q"
-            placeholder="Search Custom Search Engine or Google"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Search</button>
-          <button onClick={this.handleGoogle}>Google</button>
+            <div className="input-group">
+              <a className="navbar-brand" href="1">
+                TitanSearch
+              </a>
+
+              <input
+                type="search"
+                name="q"
+                placeholder="Search Custom Search Engine or Google"
+                value={this.state.value}
+                onChange={this.handleChange}
+                className="form-control input-lg"
+                aria-label=""
+                aria-describedby="basic-addon1"
+              />
+              <div className="input-group-append">
+                <button type="submit" className="btn btn-outline-primary">
+                  Search
+                </button>
+                <button
+                  type="submit"
+                  onClick={this.handleGoogle}
+                  className="btn btn-outline-primary"
+                >
+                  Google
+                </button>
+              </div>
+            </div>
+          </form>
           <ActionButton
             handleDeleteAll={this.handleDeleteAll}
             handleGoBack={this.handleGoBack}
           />
-          <AddButton
-            handleAddButton={this.handleAddButton}
-            handleAddTextToField={this.handleAddTextToField}
-          />
-
-          <Buttons
-            buttons={this.state.buttons}
-            handleSetButton={this.handleSetButton}
-          />
-        </form>
-      </div>
-    );
-  }
-}
-
-class AddButton extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    const button = e.target.elements.button.value.trim();
-    this.props.handleAddButton(button);
-    console.log(this.props);
-  }
-
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="button" />
-          <button>Add Button</button>
-        </form>
-      </div>
-    );
-  }
-}
-
-class Buttons extends Component {
-  constructor(props) {
-    super(props);
-    this.handleAddTextToField = this.handleAddTextToField.bind(this);
-  }
-  handleAddTextToField(button) {
-    console.log(button);
-    this.props.handleSetButton(button);
-  }
-  render() {
-    return (
-      <div>
-        {this.props.buttons.map(button => (
-          <Button
-            key={button}
-            buttonText={button}
-            handleAddTextToField={this.handleAddTextToField}
-          />
-        ))}
-      </div>
-    );
-  }
-}
-class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick() {
-    const buttonOne = this.props.buttonText;
-    this.props.handleAddTextToField(buttonOne);
-  }
-  render() {
-    return (
-      <div>
-        <button onClick={this.handleClick}>{this.props.buttonText}</button>
+        </nav>
       </div>
     );
   }

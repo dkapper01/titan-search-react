@@ -1,5 +1,9 @@
 .App {
-    /* color: white; */
+    font-weight: 300;
+}
+
+a:link {
+    text-decoration: none;
 }
 
 .form-width {
@@ -9,18 +13,28 @@
 .form-style {
     background-color: transparent !important;
     border: none !important;
-    margin-top: -10px;
-    margin-bottom: -10px;
+    margin-top: -9px;
+    margin-bottom: -9px;
+    margin-left: -17px;
+}
+
+.logo-style {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.icon-style {
+    font-size: 500;
 }
 
 body {
     font-size: 0.875rem;
 }
 
-.feather {
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
+.navbar .form-control {
+    padding: 0.75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
 }
 
 /*
@@ -84,37 +98,7 @@ body {
  * Content
  */
 
-[role="main"] {padding-top: 48px;
-/* Space for fixed navbar */
-
-} 
-
-*/
-/*
- * Navbar
- */
-
-.navbar-brand {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    /* font-size: 20px; */
-    /* background-color: #3f51b5; */
-    /* box-shadow: inset -3px 0 0 rgba(0, 0, 0, 0.25); */
+[role="main"] {
+    padding-top: 48px;
+    /* Space for fixed navbar */
 }
-
-.navbar .form-control {
-    padding: 0.75rem 1rem;
-    border-width: 0;
-    border-radius: 0;
-}
-
-/* .form-control-dark {
-    color: #fff;
-    background-color: rgba(255, 255, 255, .1);
-    border-color: rgba(255, 255, 255, .1);
-}
-
-.form-control-dark:focus {
-    border-color: transparent;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
-} */

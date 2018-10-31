@@ -5,14 +5,18 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <h1>Hello</h1>
-        <hr/>
+      <div className="container-fullwidth">
         <SearchBox />
-        <hr/>
       </div>
     );
   }
 }
 
 export default App;
+
+
+// type="search"
+// name="q"
+// placeholder="Search Custom Search Engine or Google"
+// value={this.state.value}
+// onChange={this.handleChange}
