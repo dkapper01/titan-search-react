@@ -1,22 +1,7 @@
 import React, { Component } from "react";
 import ActionButton from "./actionButtons/ActionButtons";
 
-const divStyle = {
-  width: "100%",
-  // height: '100px',
-  // border: '1px solid red',
-  display: "inline-block"
-};
-const brandStyle = {
-  border: "1px solid red",
-  display: "inline-block"
-};
-const navStyle = {
-  width: "100%"
-};
-const formStyle = {
-  display: "inline-block"
-};
+const divStyle = {};
 
 class SearchBox extends Component {
   constructor(props) {
@@ -70,50 +55,49 @@ class SearchBox extends Component {
   }
   render() {
     return (
-      <div style={divStyle}>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-          <form
-            style={navStyle}
-            className=""
-            action=""
-            method="get"
-            onSubmit={this.handleOnSubmit}
-          >
-            <div className="input-group">
-              <a className="navbar-brand" href="1">
-                TitanSearch
-              </a>
-
-              <input
-                type="search"
-                name="q"
-                placeholder="Search Custom Search Engine or Google"
-                value={this.state.value}
-                onChange={this.handleChange}
-                className="form-control input-lg"
-                aria-label=""
-                aria-describedby="basic-addon1"
-              />
-              <div className="input-group-append">
-                <button type="submit" className="btn btn-outline-primary">
-                  Search
-                </button>
-                <button
-                  type="submit"
-                  onClick={this.handleGoogle}
-                  className="btn btn-outline-primary"
-                >
-                  Google
-                </button>
-              </div>
-            </div>
-          </form>
-          <ActionButton
-            handleDeleteAll={this.handleDeleteAll}
-            handleGoBack={this.handleGoBack}
-          />
-        </nav>
-      </div>
+      <nav
+        class="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color"
+        // style="background-color: #3f51b5;"
+      >
+        <a class="logo-style col-sm-3 col-md-2 mr-0 text-white" href="1">
+          TitanSearch
+        </a>
+        <form
+          className="form-control form-style"
+          action=""
+          method="get"
+          onSubmit={this.handleOnSubmit}
+        >
+          <div className="input-group">
+            <input
+              type="search"
+              name="q"
+              placeholder="Search Custom Search Engine or Google"
+              value={this.state.value}
+              onChange={this.handleChange}
+              className="form-control"
+              aria-label=""
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-append">
+              <button
+                type="submit"
+                className="btn btn-outline-light my-2 my-sm-0"
+              >
+                Search
+              </button>
+              <button
+                type="submit"
+                onClick={this.handleGoogle}
+                className="btn btn-outline-light my-2 my-sm-0"
+              >
+                Google
+              </button>
+            </span>
+          </div>
+        </form>
+        <ActionButton />
+      </nav>
     );
   }
 }

@@ -9,7 +9,9 @@ a:link {
 .form-width {
     width: 100%;
 }
-
+.nav-color {
+  background-color: #3f51b5; 
+}
 .form-style {
     background-color: transparent !important;
     border: none !important;
