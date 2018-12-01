@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ActionButton from "./actionButtons/ActionButtons";
+import axios from "axios";
 
 const divStyle = {};
 
@@ -9,7 +10,8 @@ class SearchBox extends Component {
 
     this.state = {
       value: "",
-      search: "qctzzxd3rpa"
+      search: "qctzzxd3rpa",
+      results: []
     };
 
     this.handleGoogle = this.handleGoogle.bind(this);
@@ -17,7 +19,7 @@ class SearchBox extends Component {
     this.handleDeleteAll = this.handleDeleteAll.bind(this);
     this.handleGoBack = this.handleGoBack.bind(this);
   }
-
+  results = [];
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
     console.log("googling");
@@ -25,24 +27,31 @@ class SearchBox extends Component {
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
-  componentDidMount() {
-    (function() {
-      var cx = "007806920644787485811:qgwcit01afm";
-      var gcse = document.createElement("script");
-      gcse.type = "text/javascript";
-      gcse.async = true;
-      gcse.src = "https://cse.google.com/cse.js?cx=" + cx;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
-  }
+  componentDidMount() {}
   handleDeleteAll() {
     this.setState({ value: "" });
     console.log("delete All");
   }
-  handleOnSubmit(e) {
-    // e.preventDefault();
-  }
+  handleOnSubmit = e => {
+    e.preventDefault();
+    console.log("submitting");
+    const cx = "007806920644787485811:qgwcit01afm";
+    const key = "AIzaSyDtoEySNigTP4xTdFiL5ce6Q9S2Pi6fVZI";
+    axios
+      .get(
+        `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=${
+          this.state.value
+        }
+    `
+      )
+      .then(res => {
+        console.log(res);
+        const results = res.data.items.map(item => (
+          <li key={item.link}>{item.htmlSnippet}</li>
+        ));
+        this.setState({ results });
+      });
+  };
   handleGoBack() {
     const n = this.state.value.split(" ");
     const newValue = n.slice(0, -1);
@@ -56,16 +65,14 @@ class SearchBox extends Component {
   render() {
     return (
       <nav
-        class="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color"
+        className="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color"
         // style="background-color: #3f51b5;"
       >
-        <a class="logo-style col-sm-3 col-md-2 mr-0 text-white" href="1">
+        <a className="logo-style col-sm-3 col-md-2 mr-0 text-white" href="1">
           TitanSearch
         </a>
         <form
           className="form-control form-style"
-          action=""
-          method="get"
           onSubmit={this.handleOnSubmit}
         >
           <div className="input-group">
@@ -79,9 +86,10 @@ class SearchBox extends Component {
               aria-label=""
               aria-describedby="basic-addon1"
             />
-            <span class="input-group-append">
+            <span className="input-group-append">
               <button
                 type="submit"
+                onClick={this.handleOnSubmit}
                 className="btn btn-outline-light my-2 my-sm-0"
               >
                 Search
@@ -97,6 +105,7 @@ class SearchBox extends Component {
           </div>
         </form>
         <ActionButton />
+        <ul>{this.state.results}</ul>
       </nav>
     );
   }
