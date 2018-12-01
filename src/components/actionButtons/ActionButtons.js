@@ -12,24 +12,24 @@ const btnStyle = {
 const ActionButtons = props => {
   return (
     <div>
-      <ul class="navbar-nav">
-        <li class="nav-item" />
-        <li class="nav-item">
-          <a class="nav-link text-white" href="1">
+      <ul className="navbar-nav">
+        <li className="nav-item" />
+        <li className="nav-item">
+          <a className="nav-link text-white" href="1">
             <i
-              class="fa fa-trash-o icon-large"
+              className="fa fa-trash-o icon-large"
               onClick={props.handleGoBack}
               aria-hidden="true"
             />
           </a>
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <a
-            class="nav-link text-white"
+            className="nav-link text-white"
             onClick={props.handleDeleteAll}
             href="1"
           >
-            <i class="fa fa-undo icon-large" aria-hidden="true" />
+            <i className="fa fa-undo icon-large" aria-hidden="true" />
           </a>
         </li>
       </ul>
