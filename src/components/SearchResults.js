@@ -6,14 +6,18 @@ class SearchResults extends Component {
   }
   displayResults() {
     return this.props.results.map(result => (
-      <li key={result.cacheId}>
+      <li class="d-block mt-1" key={result.cacheId}>
         <span>{result.htmlSnippet}</span>
         <a href={result.link}>{result.displayLink}</a>
       </li>
     ));
   }
   render() {
-    return <ul className="search-results">{this.displayResults()}</ul>;
+    return (
+      <div className="row justify-content-end mt-3">
+        <ul className="col-md-10">{this.displayResults()}</ul>
+      </div>
+    );
   }
 }
 
