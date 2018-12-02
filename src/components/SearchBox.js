@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import ActionButton from "./actionButtons/ActionButtons";
 import axios from "axios";
 
-const divStyle = {};
-
 class SearchBox extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       value: "",
-      search: "qctzzxd3rpa",
-      results: []
+      search: "qctzzxd3rpa"
     };
 
     this.handleGoogle = this.handleGoogle.bind(this);
@@ -36,20 +33,23 @@ class SearchBox extends Component {
     e.preventDefault();
     console.log("submitting");
     const cx = "007806920644787485811:qgwcit01afm";
+    // Set up Google Custom Search Key here
+    // https://developers.google.com/custom-search/v1/introduction
+    // XXXXXXXXXXXXXXXXXXXXXXXXXX
     const key = "AIzaSyDtoEySNigTP4xTdFiL5ce6Q9S2Pi6fVZI";
     axios
       .get(
         `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=${
           this.state.value
-        }
-    `
+        }`
       )
       .then(res => {
         console.log(res);
-        const results = res.data.items.map(item => (
-          <li key={item.link}>{item.htmlSnippet}</li>
-        ));
-        this.setState({ results });
+        if (res && res.data && res.data.items) {
+          this.props.setResults(res.data.items);
+        } else {
+          console.warn("No response received");
+        }
       });
   };
   handleGoBack() {
