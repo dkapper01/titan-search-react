@@ -6,7 +6,7 @@ class SearchResults extends Component {
   }
   displayResults() {
     return this.props.results.map(result => (
-      <li class="d-block mt-1" key={result.cacheId}>
+      <li className="d-block mt-1" key={result.cacheId}>
         <span>{result.htmlSnippet}</span>
         <a href={result.link}>{result.displayLink}</a>
       </li>
