@@ -34,8 +34,7 @@ class SearchBox extends Component {
     const cx = "007806920644787485811:qgwcit01afm";
     // Set up Google Custom Search Key here
     // https://developers.google.com/custom-search/v1/introduction
-    // XXXXXXXXXXXXXXXXXXXXXXXXXX
-    const key = "AIzaSyDtoEySNigTP4xTdFiL5ce6Q9S2Pi6fVZI";
+    const key = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
     axios
       .get(
         `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=${
