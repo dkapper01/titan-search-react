@@ -24,7 +24,6 @@ class SearchBox extends Component {
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
-  componentDidMount() {}
   handleDeleteAll() {
     this.setState({ value: "" });
     console.log("delete All");
@@ -58,9 +57,6 @@ class SearchBox extends Component {
     const i = newValue.join(" ");
     this.setState({ value: i });
     console.log("go back");
-  }
-  handleOnSubmitActionButtons(e) {
-    // e.preventDefault()
   }
   render() {
     return (
