@@ -1,9 +1,10 @@
 import React from "react";
 
-const btnStyle = {
-  // width: '190px',
-  // border: '1px solid red',
-  // display: 'inline-block'
+const style  = {
+  btnStyle: {
+    background: 'transparent',
+    border: 'none'
+  }
 };
 
 // background-color: transparent !important;
@@ -13,24 +14,24 @@ const ActionButtons = props => {
   return (
     <div>
       <ul className="navbar-nav">
-        <li className="nav-item" />
         <li className="nav-item">
-          <a className="nav-link text-white" href="1">
-            <i
-              className="fa fa-trash-o icon-large"
-              onClick={props.handleGoBack}
-              aria-hidden="true"
-            />
-          </a>
+        <button 
+            type="submit"
+            onClick={props.handleGoBack} 
+            style={style.btnStyle}
+          >
+            <img src={require('../actionButtons/back-button.png')} alt="back button" />
+            </button>
         </li>
         <li className="nav-item">
-          <a
-            className="nav-link text-white"
+        <button
+            type="submit"
             onClick={props.handleDeleteAll}
-            href="1"
+            style={style.btnStyle}
           >
-            <i className="fa fa-undo icon-large" aria-hidden="true" />
-          </a>
+            <img src={require('../actionButtons/trash.png')} alt="trash" />
+
+          </button>
         </li>
       </ul>
     </div>
@@ -38,16 +39,3 @@ const ActionButtons = props => {
 };
 
 export default ActionButtons;
-
-// <form className="input-group" onSubmit={props.handleOnSubmitActionButtons}>
-
-//     <button
-//       // style={btnStyle}
-//         className="btn btn-outline-primary "
-//         onClick={props.handleGoBack}>Go Back
-//         </button>
-//       <button
-//       // style={btnStyle}
-//         className="btn btn-outline-primary "
-//         onClick={props.handleDeleteAll}>Delete All</button>
-//       </form>
