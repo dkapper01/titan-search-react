@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import ActionButton from "./actionButtons/ActionButtons";
 import axios from "axios";
 
+const style  = {
+  btnStyle: {
+    background: 'transparent',
+    border: 'none'
+  }
+};
+
 class SearchBox extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +42,7 @@ class SearchBox extends Component {
     // Set up Google Custom Search Key here
     // https://developers.google.com/custom-search/v1/introduction
     // XXXXXXXXXXXXXXXXXXXXXXXXXX
-    const key = "AIzaSyDtoEySNigTP4xTdFiL5ce6Q9S2Pi6fVZI";
+    const key = "AIzaSyDfqwsDoc5QqRg-bed79bTZKa1_XGXY4eI";
     axios
       .get(
         `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=${
@@ -51,7 +58,8 @@ class SearchBox extends Component {
         }
       });
   };
-  handleGoBack() {
+  handleGoBack(e) {
+    // e.preventDefault(); 
     const n = this.state.value.split(" ");
     const newValue = n.slice(0, -1);
     const i = newValue.join(" ");
@@ -99,10 +107,15 @@ class SearchBox extends Component {
               </button>
             </span>
           </div>
+          <ActionButton 
+            handleDeleteAll={this.handleDeleteAll}
+            handleGoBack={this.handleGoBack}
+          />
+
         </form>
-        <ActionButton />
+
         <ul>{this.state.results}</ul>
-      </nav>
+      </nav>  
     );
   }
 }
