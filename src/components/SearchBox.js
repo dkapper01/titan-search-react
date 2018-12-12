@@ -17,7 +17,7 @@ class SearchBox extends Component {
     this.handleDeleteAll = this.handleDeleteAll.bind(this);
     this.handleGoBack = this.handleGoBack.bind(this);
   }
-  
+
   results = [];
 
   handleGoogle() {
@@ -65,7 +65,7 @@ class SearchBox extends Component {
     return (
       <div>
       <nav className="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color">
-        <a className="logo-style col-sm-3 col-md-2 mr-0 text-white" href="1">
+        <a className="logo-style col-sm-3 col-md-2 mr-0 text-white" href="#">
           TitanSearch
         </a>
         <form
