@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 
+
+
+
 class SearchResults extends Component {
   constructor(props) {
     super(props);
   }
+
   displayResults() {
     return this.props.results.map(result => (
       <li className="d-block mt-1" key={result.cacheId}>
-        <span>{result.htmlSnippet}</span>
+        <span className="result-title">{result.title}</span> 
+        <span>{result.snippet}</span>
+        <a href="">cat</a>
+        
         <a href={result.link}>{result.displayLink}</a>
       </li>
     ));
