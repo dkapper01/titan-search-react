@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import ActionButton from "./actionButtons/ActionButtons";
-import axios from "axios";
 
-const style  = {
-  btnStyle: {
-    background: 'transparent',
-    border: 'none'
-  }
-};
+import axios from "axios";
 
 class SearchBox extends Component {
   constructor(props) {
@@ -23,7 +17,9 @@ class SearchBox extends Component {
     this.handleDeleteAll = this.handleDeleteAll.bind(this);
     this.handleGoBack = this.handleGoBack.bind(this);
   }
+  
   results = [];
+
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
     console.log("googling");
@@ -59,7 +55,6 @@ class SearchBox extends Component {
       });
   };
   handleGoBack(e) {
-    // e.preventDefault(); 
     const n = this.state.value.split(" ");
     const newValue = n.slice(0, -1);
     const i = newValue.join(" ");
@@ -68,15 +63,13 @@ class SearchBox extends Component {
   }
   render() {
     return (
-      <nav
-        className="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color"
-        // style="background-color: #3f51b5;"
-      >
+      <div>
+      <nav className="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color">
         <a className="logo-style col-sm-3 col-md-2 mr-0 text-white" href="1">
           TitanSearch
         </a>
         <form
-          className="form-control form-style"
+          className="form-control form-style "
           onSubmit={this.handleOnSubmit}
         >
           <div className="input-group">
@@ -105,17 +98,21 @@ class SearchBox extends Component {
               >
                 Google
               </button>
+
+              <ActionButton
+                  handleDeleteAll={this.handleDeleteAll}
+                  handleGoBack={this.handleGoBack}
+                />
             </span>
+
           </div>
-          <ActionButton 
-            handleDeleteAll={this.handleDeleteAll}
-            handleGoBack={this.handleGoBack}
-          />
 
         </form>
-
         <ul>{this.state.results}</ul>
-      </nav>  
+
+      </nav>
+
+      </div>
     );
   }
 }
