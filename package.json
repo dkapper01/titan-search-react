@@ -11,7 +11,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4"
   },
-  "homepage": "https://dkapper01.github.io/titan-search-react",
+  "homepage": "https://dkapper01.github.io/titan-search-react/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
