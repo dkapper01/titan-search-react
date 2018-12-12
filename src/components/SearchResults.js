@@ -14,7 +14,7 @@ class SearchResults extends Component {
   }
   render() {
     return (
-      <div className="row justify-content-end mt-3">
+      <div className="row justify-content-end mt-3 results-style">
         <ul className="col-md-10">{this.displayResults()}</ul>
       </div>
     );
