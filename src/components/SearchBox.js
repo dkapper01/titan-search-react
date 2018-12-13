@@ -34,6 +34,9 @@ class SearchBox extends Component {
   handleOnSubmit = e => {
     e.preventDefault();
     console.log("submitting");
+    // const i = "qgwcit01afm";
+    // const x = "98sotlec3fi";
+
     const cx = "007806920644787485811:qgwcit01afm";
     // Set up Google Custom Search Key here
     // https://developers.google.com/custom-search/v1/introduction
