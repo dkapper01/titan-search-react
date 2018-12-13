@@ -10,11 +10,10 @@ class SearchResults extends Component {
 
   displayResults() {
     return this.props.results.map(result => (
-      <li className="d-block mt-1" key={result.cacheId}>
+      <li className="d-block mt-1" key={result.snippet}>
         <span className="result-title">{result.title}</span> 
-        <span>{result.snippet}</span>
-        <a href="">cat</a>
-        
+        <span>{result.snippet}</span>    
+        {/* <span>{result.pagemap.cse_thumbnail}</span>     */}
         <a href={result.link}>{result.displayLink}</a>
       </li>
     ));
