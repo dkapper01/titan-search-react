@@ -12,9 +12,8 @@ class SearchResults extends Component {
     return this.props.results.map(result => (
       <li className="d-block mt-1" key={result.kind}>
         <span className="result-title">{result.title}</span><br />
-        {/* <span>{result.link}</span> <b /> */}
-        <a href={result.link} target="_blank">{result.link}</a>
-        <a href={result.link}>{result.displayLink}</a>
+        <a className="" href={result.link} target="_blank">{result.link}</a>
+        <div className="space"></div>
       </li>
     ));
   }

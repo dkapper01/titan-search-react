@@ -53,11 +53,10 @@ body {
 }
 
 
-/* .float-left {
-    border: 1px solid red; 
-    float: left; 
-    padding-right: 100px; 
-} */
+.space {
+ margin-bottom: 20px;
+ border-bottom: 1px solid lightgray; 
+}
 
 /*
  * Sidebar
