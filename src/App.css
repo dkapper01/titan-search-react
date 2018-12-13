@@ -44,18 +44,19 @@ body {
 .results-style {
     padding: 50px;
 }
+
 .result-title {
-    font-size: 25px; 
+    font-size: 20px;
 }
+
 .btns {
     background: transparent;
     border: none;
 }
 
-
 .space {
- margin-bottom: 20px;
- border-bottom: 1px solid lightgray; 
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgray;
 }
 
 /*
