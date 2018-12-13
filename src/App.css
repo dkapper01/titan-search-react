@@ -44,11 +44,14 @@ body {
 .results-style {
     padding: 50px;
 }
-
+.result-title {
+    font-size: 25px; 
+}
 .btns {
     background: transparent;
     border: none;
 }
+
 
 /* .float-left {
     border: 1px solid red; 
