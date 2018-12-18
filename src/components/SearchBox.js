@@ -19,12 +19,19 @@ class SearchBox extends Component {
   }
 
   results = [];
+ 
+  combineExecutiveAndCompany() {
+    
+  } 
 
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
     console.log("googling");
   }
   handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+  handleChangeCompany(e) {
     this.setState({ value: e.target.value });
   }
   handleDeleteAll() {
@@ -133,8 +140,6 @@ class SearchBox extends Component {
             src={require("../components/actionButtons/home.png")}
             alt="home"
           />
-
-          {/* <ul>{this.state.results}</ul> */}
         </nav>
       </div>
     );
