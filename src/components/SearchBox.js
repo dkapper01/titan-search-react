@@ -79,13 +79,25 @@ class SearchBox extends Component {
             <input
               type="search"
               name="q"
-              placeholder="Search Custom Search Engine or Google"
+              placeholder="Executive's Name"
               value={this.state.value}
               onChange={this.handleChange}
               className="form-control"
               aria-label=""
               aria-describedby="basic-addon1"
             />
+            <span className="border-line"></span>
+             <input
+              type="search"
+              name="q"
+              placeholder="Company's Name"
+              value={this.state.value}
+              onChange={this.handleChange}
+              className="form-control "
+              aria-label=""
+              aria-describedby="basic-addon1"
+            />
+
             <span className="input-group-append">
               <button
                 type="submit"

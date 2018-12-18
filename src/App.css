@@ -30,7 +30,12 @@ a:link {
 .icon-style {
   font-size: 500;
 }
-
+.border-line {
+    background-color: #3f51b5; 
+    width: 4px; 
+    /* border: 1px solid #3f51b5; */
+    ; 
+}
 body {
   font-size: 0.875rem;
 }
