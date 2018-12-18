@@ -36,15 +36,17 @@ a:link {
 }
 .trash {
   width: 32px; 
-  height: 26px; 
+  height: 28px; 
 }
 .actionUL {
   padding: 0px; 
   margin: 0px; 
 }
+.x-btn {
+  border-bottom: 1px solid white; 
+}
 .actionBtn {
   border-top: 1px solid white;
-  border-bottom: 1px solid white; 
   list-style-type: none;
 }
 .border-line {

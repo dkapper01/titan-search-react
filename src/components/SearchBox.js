@@ -127,7 +127,7 @@ class SearchBox extends Component {
 
         </form>
         <img className="trash" src={require('../components/actionButtons/trash.png')} alt="trash" />
-              <img className="home" src={require('../components/actionButtons/home.png')} alt="home" />
+        <img className="home" src={require('../components/actionButtons/home.png')} alt="home" />
 
         <ul>{this.state.results}</ul>
 

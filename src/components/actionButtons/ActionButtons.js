@@ -9,7 +9,7 @@ const ActionButtons = props => {
             <img src={require("../actionButtons/back.png")} alt="back button" />
           </button>
         </li>
-        <li className="actionBtn">
+        <li className="actionBtn x-btn">
           <button
             className="btns"
             type="submit"
