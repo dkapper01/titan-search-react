@@ -86,7 +86,11 @@ class SearchBox extends Component {
               aria-label=""
               aria-describedby="basic-addon1"
             />
-            <span className="border-line"></span>
+              <ActionButton
+                  handleDeleteAll={this.handleDeleteAll}
+                  handleGoBack={this.handleGoBack}
+                />
+            {/* <span className="border-line"></span> */}
              <input
               type="search"
               name="q"
@@ -97,6 +101,10 @@ class SearchBox extends Component {
               aria-label=""
               aria-describedby="basic-addon1"
             />
+              <ActionButton
+                  handleDeleteAll={this.handleDeleteAll}
+                  handleGoBack={this.handleGoBack}
+                />
 
             <span className="input-group-append">
               <button
@@ -113,16 +121,14 @@ class SearchBox extends Component {
               >
                 Google
               </button>
-
-              <ActionButton
-                  handleDeleteAll={this.handleDeleteAll}
-                  handleGoBack={this.handleGoBack}
-                />
             </span>
 
           </div>
 
         </form>
+        <img className="trash" src={require('../components/actionButtons/trash.png')} alt="trash" />
+              <img className="home" src={require('../components/actionButtons/home.png')} alt="home" />
+
         <ul>{this.state.results}</ul>
 
       </nav>
