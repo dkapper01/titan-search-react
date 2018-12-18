@@ -6,7 +6,7 @@ const ActionButtons = props => {
       <ul className="actionUL">
         <li className="actionBtn">
           <button className="btns" type="submit" onClick={props.handleGoBack}>
-            <img src={require("../actionButtons/back.png")} alt="back button" />
+            <img className="test" src={require("../actionButtons/back.png")} alt="back button" />
           </button>
         </li>
         <li className="actionBtn x-btn">
@@ -15,7 +15,7 @@ const ActionButtons = props => {
             type="submit"
             onClick={props.handleDeleteAll}
           >
-            <img src={require("../actionButtons/clear-button.png")} alt="trash" />
+            <img className="test" src={require("../actionButtons/clear-button.png")} alt="trash" />
           </button>
         </li>
       </ul>

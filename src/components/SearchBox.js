@@ -21,7 +21,7 @@ class SearchBox extends Component {
   results = [];
  
   combineExecutiveAndCompany() {
-    
+
   } 
 
   handleGoogle() {
@@ -130,6 +130,11 @@ class SearchBox extends Component {
               </span>
             </div>
           </form>
+          <img
+            className=""
+            src={require("../components/actionButtons/add.png")}
+            alt="trash"
+          />
           <img
             className="trash"
             src={require("../components/actionButtons/trash.png")}
