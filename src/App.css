@@ -47,12 +47,7 @@ a:link {
 }
 .actionBtn {
   border-top: 1px solid white;
-  list-style-type: none;
-}
-.border-line {
-    background-color: #3f51b5; 
-    width: 4px; 
-    /* border: 1px solid #3f51b5; */
+  list-style-type: none; 
 }
 body {
   font-size: 0.875rem;
@@ -65,7 +60,8 @@ body {
 }
 
 .results-style {
-  padding: 50px;
+  padding-top: 70px;
+  padding-left: 40px; 
 }
 
 .result-title {

@@ -67,72 +67,75 @@ class SearchBox extends Component {
   render() {
     return (
       <div>
-      <nav className="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color">
-        <a className="logo-style col-sm-3 col-md-2 mr-0 text-white" href="#">
-          TitanSearch
-        </a>
-        <form
-          className="form-control form-style "
-          onSubmit={this.handleOnSubmit}
-        >
-          <div className="input-group">
-            <input
-              type="search"
-              name="q"
-              placeholder="Executive's Name"
-              value={this.state.value}
-              onChange={this.handleChange}
-              className="form-control"
-              aria-label=""
-              aria-describedby="basic-addon1"
-            />
+        <nav className="navbar navbar-expand-md flex-md-nowrap p-1 shadow fixed-top nav-color">
+          <a className="logo-style col-sm-3 col-md-2 mr-0 text-white" href="#">
+            TitanSearch
+          </a>
+          <form
+            className="form-control form-style "
+            onSubmit={this.handleOnSubmit}
+          >
+            <div className="input-group">
+              <input
+                type="search"
+                name="q"
+                placeholder="Executive's Name"
+                value={this.state.value}
+                onChange={this.handleChange}
+                className="form-control"
+                aria-label=""
+                aria-describedby="basic-addon1"
+              />
               <ActionButton
-                  handleDeleteAll={this.handleDeleteAll}
-                  handleGoBack={this.handleGoBack}
-                />
-            {/* <span className="border-line"></span> */}
-             <input
-              type="search"
-              name="q"
-              placeholder="Company's Name"
-              value={this.state.value}
-              onChange={this.handleChange}
-              className="form-control "
-              aria-label=""
-              aria-describedby="basic-addon1"
-            />
+                handleDeleteAll={this.handleDeleteAll}
+                handleGoBack={this.handleGoBack}
+              />
+              <input
+                type="search"
+                name="q"
+                placeholder="Company's Name"
+                value={this.state.value}
+                onChange={this.handleChange}
+                className="form-control "
+                aria-label=""
+                aria-describedby="basic-addon1"
+              />
               <ActionButton
-                  handleDeleteAll={this.handleDeleteAll}
-                  handleGoBack={this.handleGoBack}
-                />
+                handleDeleteAll={this.handleDeleteAll}
+                handleGoBack={this.handleGoBack}
+              />
 
-            <span className="input-group-append">
-              <button
-                type="submit"
-                onClick={this.handleOnSubmit}
-                className="btn btn-outline-light my-2 my-sm-0"
-              >
-                Search
-              </button>
-              <button
-                type="submit"
-                onClick={this.handleGoogle}
-                className="btn btn-outline-light my-2 my-sm-0"
-              >
-                Google
-              </button>
-            </span>
+              <span className="input-group-append">
+                <button
+                  type="submit"
+                  onClick={this.handleOnSubmit}
+                  className="btn btn-outline-light my-2 my-sm-0"
+                >
+                  Search
+                </button>
+                <button
+                  type="submit"
+                  onClick={this.handleGoogle}
+                  className="btn btn-outline-light my-2 my-sm-0"
+                >
+                  Google
+                </button>
+              </span>
+            </div>
+          </form>
+          <img
+            className="trash"
+            src={require("../components/actionButtons/trash.png")}
+            alt="trash"
+          />
+          <img
+            className="home"
+            src={require("../components/actionButtons/home.png")}
+            alt="home"
+          />
 
-          </div>
-
-        </form>
-        <img className="trash" src={require('../components/actionButtons/trash.png')} alt="trash" />
-        <img className="home" src={require('../components/actionButtons/home.png')} alt="home" />
-
-        <ul>{this.state.results}</ul>
-
-      </nav>
-
+          {/* <ul>{this.state.results}</ul> */}
+        </nav>
       </div>
     );
   }
