@@ -130,11 +130,11 @@ class SearchBox extends Component {
               </span>
             </div>
           </form>
-          <img
+          {/* <img
             className=""
             src={require("../components/actionButtons/add.png")}
             alt="trash"
-          />
+          /> */}
           <img
             className="trash"
             src={require("../components/actionButtons/trash.png")}
