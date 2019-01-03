@@ -44,31 +44,22 @@ a:link {
   padding: 0px; 
   margin: 0px; 
 }
-.test {
-  /* width: 15px; 
-  height: 15px;
-  text-align: center;
-  line-height: 150%; */
+.box {
+  border-top: 1px solid white; 
+  border-bottom: 1px solid white; 
+  
 }
+
 .btns {
   background: transparent;
   border: none;
   margin-top: 10px; 
-  /* border: 1px solid white;  */
-  /* margin: 0px;
-  padding: 0px;  */
-  /* width: 25px; 
-  height: 25px; */
 }
 .x-btn {
   border-bottom: 1px solid white; 
 }
 .actionBtn {
-  border-top: 1px solid white;
-  /* height: 25px;
-  width: auto;  */
-  /* list-style-type: none;  */
-
+  /* border-top: 1px solid white;           */
 }
 body {
   font-size: 0.875rem;

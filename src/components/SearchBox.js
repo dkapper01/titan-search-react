@@ -9,31 +9,38 @@ class SearchBox extends Component {
 
     this.state = {
       value: "",
+      valueExecutive: "",
+      valueCompany: "",
       search: "qctzzxd3rpa"
     };
 
     this.handleGoogle = this.handleGoogle.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeExecutive = this.handleChangeExecutive.bind(this);
+    this.handleChangeCompany = this.handleChangeCompany.bind(this);
     this.handleDeleteAll = this.handleDeleteAll.bind(this);
-    this.handleGoBack = this.handleGoBack.bind(this);
   }
 
   results = [];
- 
-  combineExecutiveAndCompany() {
-
-  } 
 
   handleGoogle() {
     window.open("http://www.google.com/search?q=" + this.state.value, "_blank");
     console.log("googling");
   }
+
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
-  handleChangeCompany(e) {
-    this.setState({ value: e.target.value });
+  handleChangeExecutive(e) {
+    this.setState({ valueExecutive: e.target.value });
   }
+  handleChangeCompany(e) {
+    this.setState({ valueCompany: e.target.value });
+  }
+
+
+
+
   handleDeleteAll() {
     this.setState({ value: "" });
     console.log("delete All");
@@ -51,9 +58,9 @@ class SearchBox extends Component {
     const key = "AIzaSyDfqwsDoc5QqRg-bed79bTZKa1_XGXY4eI";
     axios
       .get(
-        `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=${
-          this.state.value
-        }`
+      `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=${
+      this.state.valueExecutive + this.state.valueCompany
+      }`
       )
       .then(res => {
         console.log(res);
@@ -64,13 +71,7 @@ class SearchBox extends Component {
         }
       });
   };
-  handleGoBack(e) {
-    const n = this.state.value.split(" ");
-    const newValue = n.slice(0, -1);
-    const i = newValue.join(" ");
-    this.setState({ value: i });
-    console.log("go back");
-  }
+
   render() {
     return (
       <div>
@@ -87,21 +88,20 @@ class SearchBox extends Component {
                 type="search"
                 name="q"
                 placeholder="Executive's Name"
-                value={this.state.value}
-                onChange={this.handleChange}
+                valueExecutive={this.state.value}
+                onChange={this.handleChangeExecutive}
                 className="form-control"
                 aria-label=""
                 aria-describedby="basic-addon1"
               />
               <ActionButton
                 handleDeleteAll={this.handleDeleteAll}
-                handleGoBack={this.handleGoBack}
               />
               <input
                 type="search"
                 name="q"
                 placeholder="Company's Name"
-                value={this.state.value}
+                valueCompany={this.state.value}
                 onChange={this.handleChange}
                 className="form-control "
                 aria-label=""
@@ -130,11 +130,6 @@ class SearchBox extends Component {
               </span>
             </div>
           </form>
-          {/* <img
-            className=""
-            src={require("../components/actionButtons/add.png")}
-            alt="trash"
-          /> */}
           <img
             className="trash"
             src={require("../components/actionButtons/trash.png")}
